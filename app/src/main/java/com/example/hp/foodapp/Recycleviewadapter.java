@@ -8,6 +8,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
+import static java.security.AccessController.getContext;
+
 public class Recycleviewadapter extends RecyclerView.Adapter<Recycleviewadapter.ListHolder> {
     OnFoodClickListener onFoodClickListener;
      public Recycleviewadapter(OnFoodClickListener onFoodClickListener)
@@ -45,10 +49,13 @@ public class Recycleviewadapter extends RecyclerView.Adapter<Recycleviewadapter.
             super(itemView);
             imageView = itemView.findViewById(R.id.foodimage);
             textView = itemView.findViewById(R.id.foodname);
+            itemView.setOnClickListener(this);
         }
 
         public void bindView(int position) {
-            imageView.setImageResource(Foods.ids[position]);
+            String photouri= String.valueOf(Foods.ids[position]);
+            Picasso.get().load(Foods.ids[position]).resize(80,80).into(imageView);
+         //  imageView.setImageResource(Integer.parseInt(photouri));
             textView.setText(Foods.names[position]);
 
         }

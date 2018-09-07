@@ -25,5 +25,14 @@ public class MainActivity extends LoggingActivity implements Recycleviewadapter.
     public void onFoodClick(int position)
     {
         Toast.makeText(this, Foods.names[position], Toast.LENGTH_SHORT).show();
+        Bundle bundle=new Bundle();
+        bundle.putInt("Key_position",position);
+        ViewPager_fragment viewPagerFragment = new ViewPager_fragment();
+        viewPagerFragment.setArguments(bundle);
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.placeHolder, viewPagerFragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
     }
 }
