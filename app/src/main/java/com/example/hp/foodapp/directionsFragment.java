@@ -21,7 +21,7 @@ public class directionsFragment extends Fragment {
         int position = getArguments().getInt(KEY_POSITION);
         int value=getArguments().getInt(Value);
         RecyclerView recyclerView = view.findViewById(R.id.rd);
-        recyclerView.setAdapter(new InDAdapter(position,value));
+        recyclerView.setAdapter(new DirectionsAdapter(position,value));
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
         return view;
     }

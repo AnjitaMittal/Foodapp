@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".LoggingActivity" />
-        <activity android:name=".ViewPager_fragment"></activity>
+        <activity android:name=".ViewPager_fragment" />
+        <activity android:name=".GridFragment"></activity>
     </application>
 
 </manifest>

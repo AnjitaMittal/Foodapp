@@ -18,10 +18,19 @@ public class Recycleviewadapter extends RecyclerView.Adapter<Recycleviewadapter.
      {
     this.onFoodClickListener =onFoodClickListener;
      }
+
+
     @NonNull
     @Override
     public ListHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-       View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.list_items,parent,false);
+        boolean ifTablet = parent.getResources().getBoolean(R.bool.ifTablet);
+        View view;
+       if( ifTablet){
+            view= LayoutInflater.from(parent.getContext()).inflate(R.layout.grid_items,parent,false);
+        }
+        else{
+        view= LayoutInflater.from(parent.getContext()).inflate(R.layout.list_items,parent,false);
+        }
         return new ListHolder(view);
     }
 

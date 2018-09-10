@@ -8,17 +8,14 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 
 public class InDAdapter extends RecyclerView.Adapter<InDAdapter.DirectionHolder> {
-    private final String[] directions;
-   // private final String[] ingridients;
+   // private final String[] directions;
+    private final String[] ingridients;
 
     public InDAdapter(int position,int value) {
-        if(value==1) {
-        this.directions = Foods.directions[position].split("`");
 
-        }else
-        {
-            this.directions = Foods.ingredients[position].split("`");
-        }
+        this.ingridients = Foods.ingredients[position].split("`");
+
+
     }
 
     @NonNull
@@ -30,13 +27,13 @@ public class InDAdapter extends RecyclerView.Adapter<InDAdapter.DirectionHolder>
 
     @Override
     public void onBindViewHolder(@NonNull DirectionHolder holder, int position) {
-        holder.checkBox.setText(directions[position]);
+        holder.checkBox.setText(ingridients[position]);
       //  holder.checkBox.setText(directions[position]);
     }
 
     @Override
     public int getItemCount() {
-        return directions.length;
+        return ingridients.length;
     }
 
     public class DirectionHolder extends RecyclerView.ViewHolder {
